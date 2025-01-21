@@ -49,4 +49,25 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Initialize the first active service
   activateService(currentIndex);
+
+  // Load the Lottie animation
+  var animation = lottie.loadAnimation({
+    container: document.getElementById("home-animation"),
+    renderer: "svg",
+    loop: true,
+    autoplay: true,
+    path: "assets/homesAnimation.json",
+  });
+
+  const buttons = document.getElementsByTagName("button");
+  console.log("buttons:", buttons);
+  // Check if buttons were found
+  Array.from(buttons).forEach((button) => {
+    button.addEventListener("click", function () {
+      const contactSection = document.querySelector("#contact");
+      if (contactSection) {
+        contactSection.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    });
+  });
 });
