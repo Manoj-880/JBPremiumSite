@@ -27,28 +27,45 @@ document.addEventListener("DOMContentLoaded", function () {
     mobileNavBar.style.display = "none";
   });
 
-  // Service carousel
+  // // Service carousel
+  // const serviceItems = document.querySelectorAll(".service-item");
+  // let currentIndex = 0;
+
+  // function activateService(index) {
+  //   // console.log("called");
+  //   // Remove 'active' class from all items
+  //   serviceItems.forEach((item) => item.classList.remove("active"));
+  //   // Add 'active' class to the current item
+  //   serviceItems[index].classList.add("active");
+  // }
+
+  // function cycleServices() {
+  //   activateService(currentIndex);
+  //   currentIndex = (currentIndex + 1) % serviceItems.length;
+  // }
+
+  // // Start the cycling effect
+  // setInterval(cycleServices, 3000);
+
+  // // Initialize the first active service
+  // activateService(currentIndex);
+
   const serviceItems = document.querySelectorAll(".service-item");
   let currentIndex = 0;
 
   function activateService(index) {
-    // console.log("called");
-    // Remove 'active' class from all items
     serviceItems.forEach((item) => item.classList.remove("active"));
-    // Add 'active' class to the current item
     serviceItems[index].classList.add("active");
   }
 
   function cycleServices() {
-    activateService(currentIndex);
     currentIndex = (currentIndex + 1) % serviceItems.length;
+    activateService(currentIndex);
   }
 
-  // Start the cycling effect
-  setInterval(cycleServices, 3000);
-
-  // Initialize the first active service
+  // Start carousel
   activateService(currentIndex);
+  setInterval(cycleServices, 5000);
 
   // Load the Lottie animation
   var animation = lottie.loadAnimation({
